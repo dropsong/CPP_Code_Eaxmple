@@ -1,0 +1,37 @@
+//p3386的随机数据生成
+
+#include <bits/stdc++.h>
+#define MIN(a,b) ((a)<(b)?(a):(b))
+using namespace std;
+
+int main() {
+    
+
+    srand(time(NULL));
+	//printf("%d %d\n",rand()%1000,rand()%1000);
+	int n=1+rand()%30;
+	int m=1+rand()%30;
+	int e=1+rand()%(MIN(n,m));
+	printf("%d %d %d\n",n,m,e);
+ 
+        //srand(unsigned(time(0)));
+        vector<int> arr;
+        for (int j = 1; j <=n; ++j) //generate 20 numbers and add them into vector arr
+        arr.push_back(j);
+        random_shuffle(arr.begin(), arr.end()); //use inbuilt random function to shuffle
+		
+        vector<int> arr2;
+        for (int j = 1; j <=m; ++j)
+        arr2.push_back(j);
+        random_shuffle(arr2.begin(), arr2.end());
+
+        vector<int>::iterator i=arr.begin();
+        vector<int>::iterator i2=arr2.begin();
+        for (int cnt=1 ; i != arr.end() && i2 != arr2.end() && cnt<=e ; ++i,++i2,++cnt)
+        cout << *i<<' '<< *i2<<endl;
+        
+
+   return 0;
+}
+
+
